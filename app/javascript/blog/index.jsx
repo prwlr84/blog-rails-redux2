@@ -21,9 +21,11 @@ const reducers = combineReducers({
 
 const middlewares = applyMiddleware(reduxPromise, logger);
 
+const initialState = JSON.parse(document.getElementById('root').dataset.posts);
+
 // render an instance of the component in the DOM
 ReactDOM.render(
-  <Provider store={createStore(reducers, {}, middlewares)}>
+  <Provider store={createStore(reducers, initialState, middlewares)}>
    <Router history={history}>
      <div className="thin-container">
        <Switch>
